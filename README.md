@@ -1,6 +1,6 @@
 # Predicting Swinging Strikes: 2025 Dodgers
 
-An R project estimating the probability that a pitch thrown by a Dodgers pitcher produces a swinging strike, using its speed, movement, location, count, and batter–pitcher handedness.
+An R project estimating the probability that a pitch thrown by a Dodgers pitcher produces a swinging strike, using its speed, movement, location, count, and batter–pitcher handedness. In simple terms, this project asks: given how a pitch was thrown, how likely was the batter to swing and miss? Each pitch receives a probability. For example, a 15% prediction means roughly 15 swinging strikes per 100 similar pitches if the model’s probabilities are well calibrated.
 
 ## Question
 
@@ -20,7 +20,7 @@ A swinging strike is defined as `swinging_strike` or `swinging_strike_blocked`. 
 ## Approach
 
 I compared two logistic regression models with a constant-probability baseline.
-
+The baseline gives every pitch the same probability, using the average swinging-strike rate in the earlier data. The models try to improve on that by using information about each individual pitch.
 Both models use:
 
 - Release speed
@@ -42,7 +42,7 @@ The baseline uses the swinging-strike rate from the fitting data.
 
 ## Results
 
-Lower Brier scores indicate better probability predictions.
+Lower Brier scores indicate better probability predictions. Brier score measures how close predicted probabilities are to actual outcomes. Lower is better. The model reduced this error by 2.54% in September and 2.02% in the postseason compared with the baseline.
 
 ### August validation
 
